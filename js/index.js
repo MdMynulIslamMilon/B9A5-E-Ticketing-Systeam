@@ -7,25 +7,18 @@ let show= [];
 let totalPrice = 0;
 for (const btn of allBtn){
     btn.addEventListener("click",function(e){
-        if(count === 3 ){
-          const coupon=  document.getElementById('coupon-btn');
-          coupon.removeAttribute('disabled');
-          coupon.classList.add('bg-red-200');
+    if( count >3 ){
+        alert("You can not purches more than 4 Ticket at a time");
+        return;  
         }
-        if(count ===3 && phone===number ){
-            const nextButton = document.getElementById('next-btn');
-            nextButton.removeAttribute('disabled');
-            nextButton.classList.add('bg-red')
+        else if(count === 3 ) {
+            const coupon=  document.getElementById('coupon-btn');
+            coupon.removeAttribute('disabled');
+            coupon.classList.add('bg-red-200');
+            btn.classList.add('bg-green-400'); 
         }
-    if(count > 3)
-    { alert("You can not purches more than 4 Ticket at a time");
-    return;
-        }
-    else{
-        btn.classList.add('bg-green-400');
-    }
-    if(btn === 3){
-
+     else{
+        btn.classList.add('bg-green-400');    
     }
     btn.removeEventListener("click", arguments.callee);
     count = count + 1;
@@ -57,14 +50,16 @@ for (const btn of allBtn){
     couponBtn.addEventListener('click',function(){
         const couponInputString = document.getElementById('coupon-input');
         const couponValue = couponInputString.value;
-        const grandFinalTotal1 = updateTotalPrice - updateTotalPrice*.15; 
-        if(couponValue ==='NEW15'){
+         if(couponValue ==='NEW15'){
+            const grandFinalTotal1 = updateTotalPrice - updateTotalPrice*.15; 
             setInnerText('grand-total',grandFinalTotal1);
         } else if(couponValue === 'Couple 20'){
             // setInnerText('grand-total',grandFinalTotal2)
             const grandFinalTotal2 = updateTotalPrice - updateTotalPrice*.20; 
             setInnerText('grand-total', grandFinalTotal2)
-        } else{alert('Invalid coupon number')}
+        } else{
+            alert( "submit a coupon number");
+        }
     })   
 })
 }
