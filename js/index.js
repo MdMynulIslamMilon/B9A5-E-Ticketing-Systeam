@@ -8,7 +8,7 @@ for (const btn of allBtn){
     btn.addEventListener("click",function(e){
     
     if(count > 3)
-    { alert("You can not purches more than 4 Ticket");
+    { alert("You can not purches more than 4 Ticket at a time");
     return;
         }
     else{
@@ -23,7 +23,10 @@ for (const btn of allBtn){
     const showSeatnumber = document.getElementById('selected-option');
     const ul =document.createElement('ul');
     ul.classList.add('flex');
-    ul.classList.add('gap-6');
+    ul.classList.add('gap-12');
+    ul.classList.add('font-sans');
+    showSeatnumber.classList.add('border-b');
+    showSeatnumber.classList.add('border-black');
     const li = document.createElement('li');
     li.textContent =seatNumber;
     const li2 = document.createElement('li');
@@ -44,11 +47,12 @@ for (const btn of allBtn){
         const grandFinalTotal1 = updateTotalPrice - updateTotalPrice*.15; 
         if(couponValue ==='NEW15'){
             setInnerText('grand-total',grandFinalTotal1);
-        } else if(couponValue === 'COUPLE 20'){
+        } else if(couponValue === 'Couple 20'){
             // setInnerText('grand-total',grandFinalTotal2)
             const grandFinalTotal2 = updateTotalPrice - updateTotalPrice*.20; 
             setInnerText('grand-total', grandFinalTotal2)
-        } else(alert('Invalid coupon number'))})   
+        } else{alert('Invalid coupon number')}
+    })   
 })
 }
 function setInnerText (id,value){
