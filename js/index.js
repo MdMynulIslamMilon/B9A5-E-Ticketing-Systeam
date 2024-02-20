@@ -47,7 +47,7 @@ for (const btn of allBtn){
         const grandFinalTotal1 = updateTotalPrice - updateTotalPrice*.15; 
         if(couponValue ==='NEW15'){
             setInnerText('grand-total',grandFinalTotal1);
-        } else if(couponValue === 'couple 20'){
+        } else if(couponValue === 'Couple 20'){
             // setInnerText('grand-total',grandFinalTotal2)
             const grandFinalTotal2 = updateTotalPrice - updateTotalPrice*.20; 
             setInnerText('grand-total', grandFinalTotal2)
