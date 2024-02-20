@@ -8,7 +8,7 @@ for (const btn of allBtn){
     btn.addEventListener("click",function(e){
     
     if(count > 3)
-    { alert("You can not purches more than 4 Ticket");
+    { alert("You can not purches more than 4 Ticket at a time");
     return;
         }
     else{
@@ -51,7 +51,8 @@ for (const btn of allBtn){
             // setInnerText('grand-total',grandFinalTotal2)
             const grandFinalTotal2 = updateTotalPrice - updateTotalPrice*.20; 
             setInnerText('grand-total', grandFinalTotal2)
-        } else(alert('Invalid coupon number'))})   
+        } else{alert('Invalid coupon number')}
+    })   
 })
 }
 function setInnerText (id,value){
