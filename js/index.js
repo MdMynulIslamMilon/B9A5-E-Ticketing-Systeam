@@ -1,4 +1,5 @@
 const allBtn = document.getElementsByClassName('seat-btn');
+const phone = document.getElementById('number-id');
 let count = 0;
 let seatLeft = 40;
 let price =0;
@@ -6,13 +7,25 @@ let show= [];
 let totalPrice = 0;
 for (const btn of allBtn){
     btn.addEventListener("click",function(e){
-    
+        if(count === 3 ){
+          const coupon=  document.getElementById('coupon-btn');
+          coupon.removeAttribute('disabled');
+          coupon.classList.add('bg-red-200');
+        }
+        if(count ===3 && phone===number ){
+            const nextButton = document.getElementById('next-btn');
+            nextButton.removeAttribute('disabled');
+            nextButton.classList.add('bg-red')
+        }
     if(count > 3)
     { alert("You can not purches more than 4 Ticket at a time");
     return;
         }
     else{
         btn.classList.add('bg-green-400');
+    }
+    if(btn === 3){
+
     }
     btn.removeEventListener("click", arguments.callee);
     count = count + 1;

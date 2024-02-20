@@ -265,7 +265,9 @@
                </div>
                <div class="flex">
                  <input type="text" id="coupon-input">
-                 <button id="coupon-btn" class="p-2 bg-[#1DD100]">Apply</button>
+                 <button id="coupon-btn"  class="p-2 bg-[#6e836b] rounded opacity-50  text-white" disabled>
+                  Apply
+                </button> 
                </div>
                <div class="flex justify-between">
                  <h1 class="font-semibold">Grand Total </h1>
@@ -278,13 +280,13 @@
                      <h1 class="font-bold text-xl">Passenger Name*</h1>
                      <input class="p-2 border-2" type="text"placeholder="Enter your name">
                      <h1 class="font-bold text-xl ">Phone Number*</h1>
-                     <input class="p-2 border-2" type="number"placeholder="Enter your phone number">
+                     <input class="p-2 border-2"id="number-id" type="number"placeholder="Enter your phone number">
                      <h1 class="font-bold text-xl">Email ID</h1>
                      <input class="p-2 border-2 " type="email" placeholder="Enter your email id">
                      <!-- next btn with modal  -->
                      <div class="">
                        <!-- The button to open modal -->
-                      <div class="mt-6 mb-4"> <label for="my_modal_6" class=" bg-[#20ae5c] text-white px-52 py-2">Next</label></div>
+                      <div class="mt-6 mb-4"> <label for="my_modal_6" id="next-btn" class=" bg-[#bec7c2] text-white px-52 py-2"disabled>Next</label></div>
                       <input type="checkbox" id="my_modal_6" class="modal-toggle" />
                       <div class="modal" role="dialog">
                         <div class="modal-box flex flex-col items-center">
