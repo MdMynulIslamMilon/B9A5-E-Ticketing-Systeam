@@ -1,5 +1,4 @@
 const allBtn = document.getElementsByClassName('seat-btn');
-const phone = document.getElementById('number-id');
 const nextButton = document.getElementById('next-btn');
 let count = 0;
 let seatLeft = 40;
@@ -8,9 +7,8 @@ let show= [];
 let totalPrice = 0;
 for (const btn of allBtn){
     btn.addEventListener("click",function(e){
-    if( count >3 ){
-        alert("You can not purches more than 4 Ticket at a time");
-        return;  
+    if( count < 3  ){
+        btn.classList.add('bg-green-400'); 
         }
         else if(count === 3 ) {
             const coupon=  document.getElementById('coupon-btn');
@@ -20,10 +18,9 @@ for (const btn of allBtn){
             coupon.classList.remove('bg-red-600'); 
         }
     else{
-        btn.classList.add('bg-green-400'); 
+        alert("You can not purches more than 4 Ticket at a time");
+        return; 
     }
-
-  
     btn.removeEventListener("click", arguments.callee);
     count = count + 1;
     setInnerText('seat-count',count);
@@ -52,20 +49,31 @@ for (const btn of allBtn){
     setInnerText('total-price',updateTotalPrice);
     setInnerText('grand-total',updateTotalPrice) ;
     const couponBtn = document.getElementById('coupon-btn');
+    const fiftenpersent = updateTotalPrice*.15; 
+    const twentyPersent = updateTotalPrice*.20; 
+    const discountField= document.getElementById('discount-show-area');
+    // coupon field hide option
+    const couponField = document.getElementById('discount-field')
     couponBtn.addEventListener('click',function(){
         const couponInputString = document.getElementById('coupon-input');
         const couponValue = couponInputString.value;
          if(couponValue ==='NEW15'){
-            const grandFinalTotal1 = updateTotalPrice - updateTotalPrice*.15; 
+            discountField.classList.remove('hidden');
+            couponField.classList.add('hidden');
+            const grandFinalTotal1 = updateTotalPrice - fiftenpersent; 
             setInnerText('grand-total',grandFinalTotal1);
+            setInnerText('discount-amount',fiftenpersent);
         } else if(couponValue === 'Couple 20'){
             // setInnerText('grand-total',grandFinalTotal2)
-            const grandFinalTotal2 = updateTotalPrice - updateTotalPrice*.20; 
-            setInnerText('grand-total', grandFinalTotal2)
+            discountField.classList.remove('hidden');
+            couponField.classList.add('hidden');
+            const grandFinalTotal2 = updateTotalPrice - twentyPersent;
+            setInnerText('grand-total', grandFinalTotal2);
+            setInnerText('discount-amount',twentyPersent);
         } else{
-            alert( "submit a coupon number");
+            alert( "submit a valid coupon number");
         }
-    })   
+    })  
 })
 }
 function setInnerText (id,value){
