@@ -160,6 +160,10 @@
            <!-- Seat plan-->
              <div class=" flex flex-col">
                  <div class="font-sans">
+                   <div class="flex justify-between gap-10 mb-6">
+                    <div></div>
+                    <div class=" w-16 h-10 flex justify-center items-center bg-[#e4e7e7] px-5 py-3 rounded-xl"><img src="images/steering.png" alt=""></div>
+                   </div>
                    <div class="flex items-center gap-10 mb-6">
                     <div>A</div>
                     <button class="seat-btn  w-16 h-10 flex justify-center items-center bg-[#e4e7e7] px-5 py-3 rounded-xl"> A1</button>
@@ -254,7 +258,7 @@
                </div>
                <div class="flex">
                  <input type="text" id="coupon-input">
-                 <button id="coupon-btn"  class="p-2 bg-[#6e836b] rounded opacity-50  text-white" disabled>
+                 <button id="coupon-btn"  class="p-2 bg-red-600 rounded opacity-50  text-white" disabled>
                   Apply
                 </button> 
                </div>
@@ -273,10 +277,10 @@
                      <h1 class="font-bold text-xl">Email ID</h1>
                      <input class="p-2 border-2 " type="email" placeholder="Enter your email id">
                      <!-- next btn with modal  -->
-                     <div class="">
-                       <!-- The button to open modal -->
+                     <!-- <div class="">
+          
                       <div class="mt-6 mb-4 ">
-                      <label for="my_modal_6 " class=" bg-[#20ae5c] text-white px-52 py-2" >Next</label>
+                      <label for="my_modal_6 " class="btn bg-[#20ae5c] text-white px-52 py-2" >Next</label>
                        </div>
                       <input type="checkbox" id="my_modal_6" class="modal-toggle" />
                       <div class="modal" role="dialog">
@@ -290,8 +294,26 @@
                           </div>
                         </div>
                       </div>
+                     </div> -->    
+                  <!-- </div> -->
+
+                <!-- You can open the modal using ID.showModal() method -->
+              <button class="btn bg-green-500 my-4 text-white font-semibold text-xl" onclick="my_modal_4.showModal()" id="next-btn">Next</button>
+              <dialog id="my_modal_4" class="modal">
+                    <div class="modal-box w-11/12 max-w-5xl text-center">
+                      <img src="images/success.png" alt="" class="mx-auto">
+                     <h3 class="font-bold text-lg text-green-500">Success</h3>
+                     <p class="py-4 font-semibold">Thank you for Booking Our Bus Seats. <br> 
+                      We are working hard to find the best service and deals for you.</p>
+                      <p>Shortly you will find a confirmation in your email.</p>
+                     <div class="modal-action">
+                  <form method="dialog" class="mx-auto">
+        <!-- if there is a button, it will close the modal -->
+                    <button class="btn bg-green-500 w-40 text-white">Continue</button>
+                  </form>
+                    </div>
                      </div>
-                  </div>
+                </dialog>
                   <!-- termss and policy -->
                   <div class="flex justify-between">
                     <a href="">Terms and Conditions</a>

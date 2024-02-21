@@ -1,5 +1,6 @@
 const allBtn = document.getElementsByClassName('seat-btn');
 const phone = document.getElementById('number-id');
+const nextButton = document.getElementById('next-btn');
 let count = 0;
 let seatLeft = 40;
 let price =0;
@@ -14,12 +15,15 @@ for (const btn of allBtn){
         else if(count === 3 ) {
             const coupon=  document.getElementById('coupon-btn');
             coupon.removeAttribute('disabled');
-            coupon.classList.add('bg-red-200');
             btn.classList.add('bg-green-400'); 
+            coupon.classList.add('bg-green-500'); 
+            coupon.classList.remove('bg-red-600'); 
         }
-     else{
-        btn.classList.add('bg-green-400');    
+    else{
+        btn.classList.add('bg-green-400'); 
     }
+
+  
     btn.removeEventListener("click", arguments.callee);
     count = count + 1;
     setInnerText('seat-count',count);
@@ -46,6 +50,7 @@ for (const btn of allBtn){
     const perticketPrice  = parseInt(li3.innerText);
     const updateTotalPrice = count * perticketPrice ;
     setInnerText('total-price',updateTotalPrice);
+    setInnerText('grand-total',updateTotalPrice) ;
     const couponBtn = document.getElementById('coupon-btn');
     couponBtn.addEventListener('click',function(){
         const couponInputString = document.getElementById('coupon-input');
