@@ -22,9 +22,9 @@ for (const btn of allBtn){
         return; 
     }
     btn.removeEventListener("click", arguments.callee);
-    count = count + 1;
+    count =parseInt (count + 1);
     setInnerText('seat-count',count);
-    seatLeft= seatLeft - 1;
+    seatLeft=parseInt (seatLeft - 1);
     setInnerText('seat-left',seatLeft);
     const seatNumber = e.target.innerText;
     const showSeatnumber = document.getElementById('selected-option');
@@ -45,14 +45,15 @@ for (const btn of allBtn){
     ul.appendChild(li3);
     showSeatnumber.appendChild(ul);
     const perticketPrice  = parseInt(li3.innerText);
-    const updateTotalPrice = count * perticketPrice ;
+    const updateTotalPrice = parseInt(count * perticketPrice) ;
     setInnerText('total-price',updateTotalPrice);
     setInnerText('grand-total',updateTotalPrice) ;
     const couponBtn = document.getElementById('coupon-btn');
-    const fiftenpersent = updateTotalPrice*.15; 
-    const twentyPersent = updateTotalPrice*.20; 
+    const fiftenpersent = parseInt(updateTotalPrice*.15); 
+    const twentyPersent = parseInt(updateTotalPrice*.20); 
     const discountField= document.getElementById('discount-show-area');
     // coupon field hide option
+   if (count===4){
     const couponField = document.getElementById('discount-field')
     couponBtn.addEventListener('click',function(){
         const couponInputString = document.getElementById('coupon-input');
@@ -62,7 +63,7 @@ for (const btn of allBtn){
             couponField.classList.add('hidden');
             const grandFinalTotal1 = updateTotalPrice - fiftenpersent; 
             setInnerText('grand-total',grandFinalTotal1);
-            setInnerText('discount-amount',fiftenpersent);
+            setInnerText('discount-amount', (fiftenpersent));
         } else if(couponValue === 'Couple 20'){
             // setInnerText('grand-total',grandFinalTotal2)
             discountField.classList.remove('hidden');
@@ -74,6 +75,8 @@ for (const btn of allBtn){
             alert( "submit a valid coupon number");
         }
     })  
+   }
+   
 })
 }
 function setInnerText (id,value){
